@@ -7,10 +7,6 @@ class Greetings(commands.Cog):
         self.__bot = bot
 
     @commands.Cog.listener()
-    async def on_ready(self):
-        print(f'connect {self.__bot.user}!')
-
-    @commands.Cog.listener()
     async def on_message(self, message):
         messages_send_on_server = f'message from  {message.author} content: {message.content}'
         print(messages_send_on_server)
