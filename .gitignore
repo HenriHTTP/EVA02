@@ -1,8 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+
+# Virtual Environments
 venv/
 env/
 
-.env
-
+# IDE specific files
+.idea/
+.vscode/
 .idea
 .vscode
-commands/__pycache__
+
+# Environment file
+.env
