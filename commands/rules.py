@@ -1,5 +1,5 @@
 from discord.ext import commands
-from utils import message
+from utils.message import Message
 
 
 class Rules(commands.Cog):
@@ -8,12 +8,12 @@ class Rules(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
-        await message.Message.remove_messages(ctx)
+        await Message.remove_messages(ctx)
         await self.__reply_to_mention(ctx)
 
     async def __reply_to_mention(self, ctx):
         message_reply = f"hello, {ctx.author.mention}"
-        await message.Message.reply_mention_message(self.__bot, ctx, message_reply)
+        await Message.reply_mention_message(self.__bot, ctx, message_reply)
 
 
 async def setup(bot: commands.bot):
