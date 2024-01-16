@@ -1,5 +1,5 @@
 from utils.message import Message
-from utils.amazon import Tiktok
+from utils.amazon import Amazon
 from discord.ext import commands
 
 
