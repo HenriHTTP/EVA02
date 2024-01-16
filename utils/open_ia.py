@@ -27,8 +27,3 @@ class OpenAi:
         except Exception as e:
             print(f"Error asking GPT-3: {e}")
             return "An error occurred while processing your request."
-
-    @staticmethod
-    async def reply_messages(ctx: commands.Context):
-        print(ctx.message.content)
-        pass
