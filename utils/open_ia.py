@@ -15,7 +15,7 @@ class OpenAi:
     async def ask_gpt(messages):
         try:
             response = openai.ChatCompletion.create(
-                model='gpt-3.5-turbo-1',
+                model='gpt-3.5-turbo',
                 messages=[
                     {"role": "system", "content": "You are a helpful assistant."},
                     {"role": "user", "content": messages},
