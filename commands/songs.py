@@ -16,6 +16,7 @@ class Songs(commands.Cog):
         join_channel = Channel.connect_to_channel(ctx)
         if join_channel:
             await ctx.send('bot join on the channel')
+            await join_channel
             return
         await ctx.reply('you need connected on voice channel for call song commands')
 
@@ -38,3 +39,4 @@ class Songs(commands.Cog):
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Songs(bot))
+
