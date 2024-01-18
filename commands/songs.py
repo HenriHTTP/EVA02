@@ -1,6 +1,7 @@
 from discord.ext import commands
 import discord
 from utils.channel import Channel
+from utils.message import Message
 
 
 class Songs(commands.Cog):
@@ -13,12 +14,19 @@ class Songs(commands.Cog):
 
     @commands.command(name="play")
     async def play_song(self, ctx: commands.Context):
-        join_channel = Channel.connect_to_channel(ctx)
-        if join_channel:
-            await ctx.send('bot join on the channel')
+        channel = Channel(ctx, self.__bot)
+        join_channel = await channel.connect_to_channel()
+        member_is_on_voice_channel = join_channel is True
+        if member_is_on_voice_channel:
+            bot_join_channel = 'bot join on the channel'
+            message = Message(ctx, bot_join_channel, self.__bot)
+            await message.send_message_user()
             await join_channel
             return
-        await ctx.reply('you need connected on voice channel for call song commands')
+        else:
+            error_message = 'you need connected on voice channel for call song commands'
+            message = Message(ctx, error_message, self.__bot)
+            await message.send_message_user()
 
     @commands.command(name='stop')
     async def stop_song(self, ctx: commands.Context):
@@ -39,4 +47,3 @@ class Songs(commands.Cog):
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Songs(bot))
-
