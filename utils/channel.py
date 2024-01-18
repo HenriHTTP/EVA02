@@ -1,16 +1,18 @@
 from discord.ext import commands
+from utils.message import Message
 
 
 class Channel:
+    def __init__(self, ctx, bot):
+        self.ctx = ctx
+        self.__bot = bot
 
-    @staticmethod
-    async def connect_to_channel(ctx: commands.Context):
+    async def connect_to_channel(self):
         try:
-            voice_channel = ctx.author.voice.channel
+            voice_channel = self.ctx.author.voice.channel
             if voice_channel:
                 await voice_channel.connect()
                 return True
         except Exception as error:
-            print(error)
-            await ctx.send(f'error: {error}')
+            print(f'error: {error}')
             return False
