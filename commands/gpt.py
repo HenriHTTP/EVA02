@@ -13,7 +13,8 @@ class Gpt(commands.Cog):
         print(message)
         response = await OpenAi.ask_gpt(message)
         print(response)
-        await Message.reply_message_user(ctx, response)
+        message = Message(ctx, response, self.__bot)
+        await message.reply_message_user()
 
 
 async def setup(bot: commands.bot):
