@@ -1,29 +1,29 @@
 from discord.ext import commands
 from utils.message import Message
-from views.greetings_view import GreetingView
+from discord.ext.commands import Context, Bot
 
 
 class Greetings(commands.Cog):
-    def __init__(self, bot: commands.bot):
+    def __init__(self, bot: Bot):
         self.__bot = bot
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
-        messages_send_on_server = f'message from  {ctx.author} content: {ctx.content}'
+        messages_send_on_server = f'message from:  {ctx.author} content: {ctx.content}'
         print(messages_send_on_server)
 
     @commands.Cog.listener()
-    async def on_member_join(self, ctx: commands.Context):
+    async def on_member_join(self, ctx: Context):
         on_member_join_message = f"Welcome to the server, {ctx.author.mention} We're glad to have you here"
         message = Message(ctx, on_member_join_message, self.__bot)
         await message.send_message_user()
 
-    @commands.command(name='hello')
-    async def greet_user(self, ctx: commands.Context):
+    @commands.hybrid_command(name='hello', description='greetings to user.')
+    async def greet_user(self, ctx: Context):
         greet_user_message = f'hello, {ctx.author} how are you my friend, be welcome to {ctx.guild}'
         message = Message(ctx, greet_user_message, self.__bot)
         await message.send_message_user()
 
 
-async def setup(bot: commands.bot):
+async def setup(bot: Bot):
     await bot.add_cog(Greetings(bot))
