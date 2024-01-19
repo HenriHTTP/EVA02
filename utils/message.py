@@ -1,11 +1,12 @@
 from discord.ext import commands
 from views.greetings_view import GreetingView
+from discord.ext.commands import Context, Bot
 
 
 class Message:
-    def __init__(self, ctx: commands.Context, message: str, bot: commands.Bot):
-        self.ctx = ctx
-        self.message = message
+    def __init__(self, ctx: Context, message: str, bot: Bot):
+        self.__ctx = ctx
+        self.__message = message
         self.__bot = bot
 
     @staticmethod
@@ -15,9 +16,9 @@ class Message:
 
     async def send_message_user(self):
         try:
-            view = GreetingView(self.ctx, self.message, self.__bot)
-            message = await self.ctx.send(embed=view.to_embed(), ephemeral=True)
-            view.message = message
+            view = GreetingView(self.__ctx, self.__message, self.__bot)
+            message = await self.__ctx.send(embed=view.to_embed(), ephemeral=True)
+            view.__message = message
             return True
         except Exception as error:
             print(error)
@@ -25,20 +26,20 @@ class Message:
 
     async def reply_message_user(self):
         try:
-            view = GreetingView(self.ctx, self.message, self.__bot)
-            message = await self.ctx.reply(embed=view.to_embed())
-            view.message = message
+            view = GreetingView(self.__ctx, self.__message, self.__bot)
+            message = await self.__ctx.reply(embed=view.to_embed())
+            view.__message = message
             return True
         except Exception as error:
             print(error)
             return False
 
     async def reply_mention_message(self):
-        if self.__bot.user.mentioned_in(self.ctx):
+        if self.__bot.user.mentioned_in(self.__ctx):
             try:
-                view = GreetingView(self.ctx, self.message, self.__bot)
-                message = await self.ctx.reply(embed=view.to_embed())
-                view.message = message
+                view = GreetingView(self.__ctx, self.__message, self.__bot)
+                message = await self.__ctx.reply(embed=view.to_embed())
+                view.__message = message
                 return True
             except Exception as error:
                 print(error)
