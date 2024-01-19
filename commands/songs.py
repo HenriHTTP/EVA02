@@ -2,18 +2,19 @@ from discord.ext import commands
 import discord
 from utils.channel import Channel
 from utils.message import Message
+from discord.ext.commands import Context, Bot
 
 
 class Songs(commands.Cog):
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: Bot):
         self.__bot = bot
 
     @commands.Cog.listener()
-    async def on_message(self, ctx):
+    async def on_message(self, ctx: Context):
         pass
 
-    @commands.command(name="play")
-    async def play_song(self, ctx: commands.Context):
+    @commands.hybrid_command(name="play")
+    async def play_song(self, ctx: Context):
         channel = Channel(ctx, self.__bot)
         join_channel = await channel.connect_to_channel()
         member_is_on_voice_channel = join_channel is True
@@ -28,16 +29,16 @@ class Songs(commands.Cog):
             message = Message(ctx, error_message, self.__bot)
             await message.send_message_user()
 
-    @commands.command(name='stop')
-    async def stop_song(self, ctx: commands.Context):
+    @commands.hybrid_command(name='stop')
+    async def stop_song(self, ctx: Context):
         pass
 
-    @commands.command(name='playlist')
-    async def get_playlist(self, ctx: commands.Context):
+    @commands.hybrid_command(name='playlist')
+    async def get_playlist(self, ctx: Context):
         pass
 
-    @commands.command(name='skip')
-    async def skip_song(self, ctx: commands.Context):
+    @commands.hybrid_command(name='skip')
+    async def skip_song(self, ctx: Context):
         pass
 
     @staticmethod
@@ -45,5 +46,5 @@ class Songs(commands.Cog):
         pass
 
 
-async def setup(bot: commands.Bot):
+async def setup(bot: Bot):
     await bot.add_cog(Songs(bot))
