@@ -4,7 +4,6 @@ import openai
 
 load_dotenv()
 OPEN_IA_TOKEN = os.getenv('OPEN_IA_TOKEN')
-
 openai.api_key = OPEN_IA_TOKEN
 
 
