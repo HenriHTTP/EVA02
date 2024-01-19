@@ -1,15 +1,13 @@
 from discord.ext import commands
-from discord.ext.commands import bot
-from utils.kitsu import Kitsu
-from utils.message import Message
-from discord.ui import Button, view
+from services.kitsu import Kitsu
+from discord.ext.commands import Bot
 
 
 class Anime(commands.Cog):
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: Bot):
         self.__bot = bot
 
-    @commands.command(name="anime")
+    @commands.command(name="anime", description='greetings to user.')
     async def search_anime(self, ctx: commands.Context, *search: str):
         print(*search)
         anime = Kitsu(ctx, self.__bot, *search)
@@ -17,5 +15,5 @@ class Anime(commands.Cog):
         print(self.__bot.user.name)
 
 
-async def setup(bot: commands.Bot):
+async def setup(bot: Bot):
     await bot.add_cog(Anime(bot))
