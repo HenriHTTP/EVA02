@@ -1,6 +1,6 @@
 from discord.ext import commands
 from utils.message import Message
-from utils.open_ia import OpenAi
+from services.open_ia import OpenAi
 
 
 class Gpt(commands.Cog):
