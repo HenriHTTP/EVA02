@@ -1,5 +1,11 @@
-import discord
-from discord.ext import commands
+###############################################
+#           Template made by HenriHTTP        #
+#          https://github.com/HenriHTTP       #
+#           Copyright© HenriHTTP, 2024        #
+###############################################
+
+import disnake
+from disnake.ext import commands
 import os
 import asyncio
 from dotenv import load_dotenv
@@ -7,14 +13,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 DISCORD_TOKEN = os.getenv('TOKEN')
-client = commands.Bot(command_prefix="/", intents=discord.Intents.all())
+intents = disnake.Intents.all()
+bot = commands.Bot(command_prefix="/", intents=intents)
 
 
 async def load_cogs():
-    for packages in os.listdir("./commands"):
-        if packages.endswith(".py"):
-            await client.load_extension("commands." + packages[:-3])
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            bot.load_extension(f"cogs.{filename[:-3]}")
 
 
 asyncio.run(load_cogs())
-client.run(DISCORD_TOKEN)
+bot.run(DISCORD_TOKEN)
+
+
+
+
+
