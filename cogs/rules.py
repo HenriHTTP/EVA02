@@ -1,6 +1,12 @@
-from discord.ext import commands
+###############################################
+#           Template made by HenriHTTP        #
+#          https://github.com/HenriHTTP       #
+#           Copyright© HenriHTTP, 2024        #
+###############################################
+
+from disnake.ext import commands
 from utils.message import Message
-from discord.ext.commands import Context, Bot
+from disnake.ext.commands import Context, Bot
 
 
 class Rules(commands.Cog):
@@ -21,5 +27,5 @@ class Rules(commands.Cog):
             print(error)
 
 
-async def setup(bot: Bot):
-    await bot.add_cog(Rules(bot))
+def setup(bot: Bot):
+    bot.add_cog(Rules(bot))

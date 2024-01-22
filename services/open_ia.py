@@ -1,3 +1,9 @@
+###############################################
+#           Template made by HenriHTTP        #
+#          https://github.com/HenriHTTP       #
+#           Copyright© HenriHTTP, 2024        #
+###############################################
+
 from dotenv import load_dotenv
 import os
 import openai
