@@ -1,5 +1,11 @@
-import discord
-from discord.ui import View
+###############################################
+#           Template made by HenriHTTP        #
+#          https://github.com/HenriHTTP       #
+#           Copyright© HenriHTTP, 2024        #
+###############################################
+
+import disnake
+from disnake.ui import View
 
 
 class AnimeView(View):
@@ -11,14 +17,14 @@ class AnimeView(View):
         self.__synopsis = synopsis
         self.__poster_image = poster_image
 
-    async def interaction_check(self, interaction: discord.Interaction):
+    async def interaction_check(self, interaction: disnake.Interaction):
         return interaction.user == self.__ctx.author
 
     def to_embed(self):
-        embed = discord.Embed(
+        embed = disnake.Embed(
             title=self.__title,
             description=f"Average Rating: {self.__average_rating}\n Synopsis: {self.__synopsis}",
-            color=discord.Color.blue()
+            color=disnake.Color.blue()
         )
         embed.set_thumbnail(url=self.__poster_image)
         return embed

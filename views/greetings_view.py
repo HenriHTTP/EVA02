@@ -1,23 +1,28 @@
-import discord
-from discord.ui import View
-from discord.ext import commands
+###############################################
+#           Template made by HenriHTTP        #
+#          https://github.com/HenriHTTP       #
+#           Copyright© HenriHTTP, 2024        #
+###############################################
+
+import disnake
+from disnake.ui import View
 
 
 class GreetingView(View):
-    def __init__(self, ctx: commands.Context, message: str, bot: commands.Bot):
+    def __init__(self, ctx, message: str, bot):
         super().__init__()
         self.__ctx = ctx
         self.__message = message
         self.__bot = bot
 
-    async def interaction_check(self, interaction: discord.Interaction):
+    async def interaction_check(self, interaction: disnake.Interaction):
         return interaction.user == self.__ctx.author
 
     def to_embed(self):
-        embed = discord.Embed(
+        embed = disnake.Embed(
             title=self.__bot.user.name,
             description=f"{self.__message}",
-            color=discord.Color.blue()
+            color=disnake.Color.blue()
         )
         embed.set_thumbnail(url=self.__bot.user.avatar.url)
         return embed
