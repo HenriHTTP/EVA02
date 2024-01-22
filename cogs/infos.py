@@ -1,5 +1,11 @@
-from discord.ext import commands
-from discord.ext.commands import Bot
+###############################################
+#           Template made by HenriHTTP        #
+#          https://github.com/HenriHTTP       #
+#           Copyright© HenriHTTP, 2024        #
+###############################################
+
+from disnake.ext import commands
+from disnake.ext.commands import Bot
 
 
 class Info(commands.Cog):
@@ -34,5 +40,5 @@ class Info(commands.Cog):
             print('serve:', names)
 
 
-async def setup(bot: Bot):
-    await bot.add_cog(Info(bot))
+def setup(bot: Bot):
+    bot.add_cog(Info(bot))
