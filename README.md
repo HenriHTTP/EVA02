@@ -6,9 +6,12 @@ Discord Python Bot Template, for those looking for ideas or starting to learn Py
 
 
 ## Features
-- GPT Command (/gpt: send ask to gpt)
-- greetings Command (/hello: say to user)
-- anime Commands (/anime: searh anime by name)
+
+| Command               | Description                                   |
+|-----------------------|-----------------------------------------------|
+| `/gpt`                | Send a query to the GPT model.                |
+| `/hello`              | Make the bot greet the user.                  |
+| `/anime`              | Search for an anime by name.                  |
 
 ## Install the dependencies
 ```bash
