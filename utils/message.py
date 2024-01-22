@@ -1,6 +1,5 @@
-from discord.ext import commands
 from views.greetings_view import GreetingView
-from discord.ext.commands import Context, Bot
+from disnake.ext.commands import Context, Bot
 
 
 class Message:
@@ -17,7 +16,8 @@ class Message:
     async def send_message_user(self):
         try:
             view = GreetingView(self.__ctx, self.__message, self.__bot)
-            message = await self.__ctx.send(embed=view.to_embed(), ephemeral=True)
+            embed = view.to_embed()
+            message = await self.__ctx.send(embed=embed, ephemeral=True)
             view.__message = message
             return True
         except Exception as error:
