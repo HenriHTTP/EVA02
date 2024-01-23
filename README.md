@@ -7,11 +7,12 @@ Discord Python Bot Template, for those looking for ideas or starting to learn Py
 
 ## Features
 
-| Command               | Description                                   |
-|-----------------------|-----------------------------------------------|
-| `/gpt`                | Send a query to the GPT model.                |
-| `/hello`              | Make the bot greet the user.                  |
-| `/anime`              | Search for an anime by name.                  |
+| Command   | Description                               |
+|-----------|-------------------------------------------|
+| `/gpt`    | Send a query to the GPT model.            |
+| `/hello`  | Make the bot greet the user.              |
+| `/anime`  | Search for an anime by name.              |
+| `/proile` | Search for an profile server by username. |
 
 ## Install the dependencies
 ```bash
