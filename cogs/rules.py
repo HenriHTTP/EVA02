@@ -18,6 +18,19 @@ class Rules(commands.Cog):
         await Message.remove_messages(ctx)
         await self.__reply_to_mention(ctx)
 
+    @commands.slash_command(name='rules', description="rules server")
+    async def rules_server(self, ctx):
+        rules = (
+            "Rules server\n"
+            "1. Lorem ipsum dolor sit amet\n"
+            "2. Consectetur adipiscing elit\n"
+            "3. Sed do eiusmod tempor incididunt\n"
+            "4. Ut labore et dolore magna aliqua\n"
+            "5. Ut enim ad minim veniam"
+        )
+        message = Message(ctx, rules, self.__bot)
+        await message.send_message_user()
+
     async def __reply_to_mention(self, ctx: Context):
         try:
             message_reply = f"hello, {ctx.author.name}"
