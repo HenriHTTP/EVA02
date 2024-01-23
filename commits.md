@@ -67,4 +67,12 @@
 - Remove `social_medias` module
 - Remove `TODO`
 
+**2024/23/01 09:10AM**
+- Fix slash send messages in `on_member_join` method on `greetings` module
+- Implement template rules on `rules` module
+- Implement `profile` on `README`
+- Create `profile` module
+- Create `profile_view` module
+- Remove `channel` module
+
 
