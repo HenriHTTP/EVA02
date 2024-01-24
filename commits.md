@@ -75,4 +75,8 @@
 - Create `profile_view` module
 - Remove `channel` module
 
+**2024/23/01 08:22AM**
+- implement release 0.0.9 on `ChangeLog`
+- Refactor rename to `EVA02`
+
 
