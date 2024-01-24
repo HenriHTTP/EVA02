@@ -1,5 +1,7 @@
-#  Discord Python Bot  
-Discord Python Bot Template, for those looking for ideas or starting to learn Python!
+#  EVA02
+
+EVA02 is a Discord bot written in Python, designed to provide various useful features for your Discord server. The bot
+utilizes the power of the GPT model and incorporates commands for greetings, anime search, and profile server search.
 
 [![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
 [![discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](#)
